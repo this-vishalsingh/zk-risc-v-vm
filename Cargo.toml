@@ -1,0 +1,52 @@
+[package]
+name = "zk-risc-v-vm"
+version = "0.1.0"
+edition = "2021"
+authors = ["vks"]
+license = "MIT"
+description = "Zero-Knowledge RISC-V Virtual Machine"
+repository = "https://github.com/this-vishalsingh/zk-risc-v-vm"
+
+[dependencies]
+# Arkworks ecosystem for zero-knowledge proofs
+ark-std = "0.4"
+ark-ff = "0.4"
+ark-ec = "0.4"
+ark-groth16 = "0.4"
+ark-r1cs-std = "0.4"
+ark-relations = "0.4"
+ark-serialize = "0.4"
+ark-bn254 = "0.4"
+
+# ELF parsing
+goblin = "0.8"
+
+# CLI interface
+clap = { version = "4.0", features = ["derive"] }
+
+# Serialization
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+
+# Error handling
+thiserror = "1.0"
+anyhow = "1.0"
+
+# Logging
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+
+# Utilities
+hex = "0.4"
+byteorder = "1.0"
+
+[dev-dependencies]
+proptest = "1.0"
+
+[[bin]]
+name = "zkvm"
+path = "src/main.rs"
+
+[lib]
+name = "zk_risc_v_vm"
+path = "src/lib.rs"
